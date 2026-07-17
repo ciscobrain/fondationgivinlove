@@ -21,7 +21,27 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="preload" as="image" href="assets/img/enfants-sourires.jpg" fetchpriority="high">
+  <style>
+    /* Accueil — 3 photos juxtaposées bord à bord (bande pleine largeur, sans marges) */
+    .home-hero { padding: 6.5rem 0 0; text-align: center; }
+    .home-hero h1 { color: var(--ink); text-wrap: balance; max-width: 22ch; margin-inline: auto; }
+    .home-hero .lead { color: var(--ink-soft); max-width: 62ch; margin: 1.1rem auto 0; }
+    .home-hero .hero-actions { justify-content: center; margin-top: 2rem; }
+    .home-hero .btn-ghost { color: var(--ink); border-color: var(--line); }
+    .home-hero .btn-ghost:hover { background: var(--bg-soft); color: var(--bleu); }
+    /* Bande de photos : hauteurs égales via flex proportionnel aux formats (4:3, 4:3, 3:4),
+       aucun recadrage, aucun agrandissement, aucun espace blanc. */
+    .photo-strip { display: flex; margin-top: 3.2rem; }
+    .photo-strip figure { margin: 0; min-width: 0; line-height: 0; }
+    .photo-strip img { width: 100%; height: auto; display: block; }
+    .photo-strip .ps-h { flex: 16; }   /* photo horizontale 4:3 */
+    .photo-strip .ps-v { flex: 9; }    /* photo verticale 3:4  */
+    @media (max-width: 640px) {
+      .photo-strip { flex-direction: column; }
+      .photo-strip figure { flex: none; }
+    }
+  </style>
+  <link rel="preload" as="image" href="assets/img/accueil-1.jpg" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,7 +63,7 @@
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu principal</a>
 
-  <header class="site-header">
+  <header class="site-header header-solid">
     <div class="wrap nav">
       <a class="brand" href="index.html" aria-label="Fondation Giv'in Love — accueil">
         <img class="brand-logo-img" src="assets/img/logo-sm.png" alt="" width="44" height="44">
@@ -70,13 +90,10 @@
   </header>
 
   <main id="contenu">
-    <!-- ================= HERO ================= -->
-    <section class="hero">
-      <div class="hero-media">
-        <img src="assets/img/enfants-sourires.jpg" alt="Enfants souriants d'un village de Côte d'Ivoire" fetchpriority="high">
-      </div>
-      <div class="wrap hero-inner">
-        <p class="kicker reveal in-view">Fondation humanitaire · Suisse 🇨🇭 – Côte d'Ivoire 🇨🇮</p>
+    <!-- ================= HERO (3 photos juxtaposées) ================= -->
+    <section class="home-hero">
+      <div class="wrap">
+        <p class="kicker k-center reveal in-view">Fondation humanitaire · Suisse 🇨🇭 – Côte d'Ivoire 🇨🇮</p>
         <h1 class="reveal in-view d1">Construisons ensemble un avenir meilleur pour les familles de Côte d'Ivoire.</h1>
         <p class="lead reveal in-view d2">Depuis 2017, nous œuvrons avec amour pour l'éducation, la santé, l'autonomisation des femmes et la protection de l'enfance.</p>
         <div class="hero-actions reveal in-view d3">
@@ -88,7 +105,11 @@
           <a class="btn btn-ghost btn-lg" href="nos-actions.html">Nos actions</a>
         </div>
       </div>
-      <div class="hero-scroll" aria-hidden="true"><span class="mouse"></span>Défiler</div>
+      <div class="photo-strip reveal in-view d3">
+        <figure class="ps-h"><img src="assets/img/accueil-1.jpg" alt="La présidente de la Fondation entourée d'enfants joyeux dans un village de Côte d'Ivoire" width="960" height="720" fetchpriority="high"></figure>
+        <figure class="ps-h"><img src="assets/img/accueil-2.jpg" alt="Enfants réunis autour d'un ballon lors d'un tournoi de football au village" width="960" height="720" loading="lazy"></figure>
+        <figure class="ps-v"><img src="assets/img/accueil-3.jpg" alt="La présidente partageant un moment de joie avec les enfants" width="720" height="960" loading="lazy"></figure>
+      </div>
     </section>
 
     <!-- ================= STATISTIQUES ================= -->
