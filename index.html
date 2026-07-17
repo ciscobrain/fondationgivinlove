@@ -40,6 +40,8 @@
       .photo-strip { flex-direction: column; }
       .photo-strip figure { flex: none; }
     }
+    /* Vignette "amour entre deux pays" : photo paysage affichée en entier (rien de coupé) */
+    .media-frame.mf-wide > img { aspect-ratio: 3 / 2; }
   </style>
   <link rel="preload" as="image" href="assets/img/accueil-1.jpg" fetchpriority="high">
   <script type="application/ld+json">
@@ -138,8 +140,8 @@
     <section class="section">
       <div class="wrap grid-2">
         <div class="reveal-left">
-          <div class="media-frame">
-            <img src="assets/img/famille-lecture.jpg" alt="Famille heureuse jouant ensemble au bord de l'océan" loading="lazy" width="900" height="1200">
+          <div class="media-frame mf-wide">
+            <img src="assets/img/amour-deux-pays.jpg" alt="Le couple fondateur suisse en tenue traditionnelle aux côtés de dignitaires ivoiriens, en Côte d'Ivoire" loading="lazy" width="1200" height="800">
             <div class="frame-badge">
               <img src="assets/img/logo-sm.png" alt="Logo de la Fondation Giv'in Love : un cœur rouge porté par une main" width="46" height="46" style="flex:none">
               <div><strong>« Posons des sillons d'un monde meilleur »</strong><span>La devise de la Fondation, née de l'engagement du couple Decurey</span></div>
