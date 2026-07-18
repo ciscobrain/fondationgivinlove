@@ -32,12 +32,24 @@
   }
   </script>
   <style>
-    /* Carte « Éducation » transformée en réalisation cliquable (galerie photos de l'école) */
-    .ecole-card { border: 0; background: none; font: inherit; text-align: left; cursor: pointer; width: 100%; }
-    .ecole-card:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; }
-    .ecole-gallery-data { display: none; }
-    #ecole-lb figure { margin: 0; display: grid; place-items: center; }
-    #ecole-lb figcaption { max-width: min(92vw, 1100px); }
+    /* ---- Nos réalisations sur le terrain ---- */
+    .real-block { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 2.2rem; margin-top: 2.4rem; }
+    .real-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.3rem; }
+    .real-head .real-icon { flex: none; width: 54px; height: 54px; border-radius: 15px; display: grid; place-items: center; background: color-mix(in srgb, var(--bleu) 12%, transparent); color: var(--bleu); }
+    .real-head .kicker { margin: 0 0 .15rem; }
+    .real-head h3 { margin: 0; }
+    .real-text { max-width: 70ch; }
+    .real-text p { margin: 0 0 1rem; }
+    .real-text h4 { margin: 1.5rem 0 .5rem; font-size: 1.08rem; }
+    .real-video { width: 100%; max-width: 760px; border-radius: var(--radius-sm); margin: 1.6rem 0 .4rem; display: block; background: #000; aspect-ratio: 16 / 9; box-shadow: var(--shadow); }
+    .real-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: .7rem; margin-top: 1.5rem; }
+    .real-gallery .ph { padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 1 / 1; position: relative; }
+    .real-gallery .ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
+    .real-gallery .ph:hover img { transform: scale(1.07); }
+    .real-gallery .ph:focus-visible { outline: 3px solid var(--bleu); outline-offset: 2px; }
+    .real-cap-src { display: none; }
+    /* Carte d'aperçu transformée en bouton (ouvre la galerie) — non utilisé ici, cartes = liens ancre */
+    @media (max-width: 600px) { .real-block { padding: 1.3rem; } .real-gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); } }
   </style>
 </head>
 <body>
@@ -94,22 +106,22 @@
           <p class="lead">Survolez chaque carte pour découvrir comment nous agissons, jour après jour, aux côtés des familles.</p>
         </div>
         <div class="grid-3" style="margin-top:2.8rem">
-          <a class="action-card reveal " href="notre-mission.html#sante">
-            <img src="assets/img/sante-medecin.jpg" alt="Médecin en consultation" loading="lazy" width="900" height="600">
+          <a class="action-card reveal " href="#real-sante">
+            <img src="assets/img/sante-4.jpg" alt="La présidente de la Fondation auprès d'un enfant atteint d'Infirmité Motrice Cérébrale, lors d'une action de soutien à Abidjan" loading="lazy" width="960" height="640">
             <div class="action-body">
               <h3><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Santé</h3>
-              <p>Maternités de proximité, suivi des femmes enceintes et lutte contre la mortalité infantile.</p>
-              <span class="card-link">Découvrir <span class="arr">→</span></span>
+              <p>Soutien aux enfants atteints d'Infirmité Motrice Cérébrale, en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant.</p>
+              <span class="card-link">Nos réalisations <span class="arr">→</span></span>
             </div>
           </a>
-          <button type="button" class="action-card reveal d1 ecole-card" data-ecole-open aria-label="Voir les photos de l'école primaire à étage (R+1) construite par la Fondation en 2017">
-            <img src="assets/img/ecole-primaire-2017-1.jpg" alt="Façade de l'école primaire à étage (R+1) construite par la Fondation Giv'in Love en 2017 en Côte d'Ivoire, avec palmiers et cour sablée" loading="lazy" width="1280" height="963">
+          <a class="action-card reveal d1" href="#real-education">
+            <img src="assets/img/ecole-primaire-2017-1.jpg" alt="École primaire à étage (R+1) construite par la Fondation Giv'in Love en 2017 en Côte d'Ivoire" loading="lazy" width="1280" height="963">
             <div class="action-body">
               <h3><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17"/><path d="M5 11.2V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.8"/></svg> Éducation</h3>
-              <p>Notre réalisation phare : une école primaire à étage (R+1) bâtie en 2017, accueillant les élèves du CE2 au CM2. Cliquez pour découvrir les photos.</p>
-              <span class="card-link">Voir les photos <span class="arr">→</span></span>
+              <p>École primaire R+1, salle informatique de 50 postes, kits scolaires pour 1 000 élèves et leadership féminin.</p>
+              <span class="card-link">Nos réalisations <span class="arr">→</span></span>
             </div>
-          </button>
+          </a>
           <a class="action-card reveal d2" href="notre-mission.html#environnement">
             <img src="assets/img/foret.jpg" alt="Girafe dans la savane africaine" loading="lazy" width="900" height="600">
             <div class="action-body">
@@ -126,12 +138,12 @@
               <span class="card-link">Découvrir <span class="arr">→</span></span>
             </div>
           </a>
-          <a class="action-card reveal d4" href="notre-mission.html#femmes">
-            <img src="assets/img/femme-formation.jpg" alt="Femme en formation professionnelle devant un ordinateur" loading="lazy" width="900" height="600">
+          <a class="action-card reveal d4" href="#real-femmes">
+            <img src="assets/img/femme-1.jpg" alt="Femmes d'une association de Lakota réunies lors d'une cérémonie de la Fondation Giv'in Love" loading="lazy" width="960" height="794">
             <div class="action-body">
               <h3><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4.97-2.3 8-6.5 8-11V5l-8-3-8 3v6c0 4.5 3.03 8.7 8 11Z"/></svg> Femmes</h3>
-              <p>Coopératives agricoles, microfinance et entrepreneuriat féminin.</p>
-              <span class="card-link">Découvrir <span class="arr">→</span></span>
+              <p>Congélateur, projet de culture du manioc et soutien aux associations de femmes de Lakota.</p>
+              <span class="card-link">Nos réalisations <span class="arr">→</span></span>
             </div>
           </a>
           <a class="action-card reveal d5" href="notre-mission.html#aide-humanitaire">
@@ -143,6 +155,209 @@
             </div>
           </a>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="realisations">
+      <div class="wrap">
+        <div class="center reveal">
+          <p class="kicker k-center">Depuis 2017</p>
+          <h2>Nos réalisations sur le terrain</h2>
+          <p class="lead">Des projets concrets, menés main dans la main avec les communautés de Côte d'Ivoire.</p>
+        </div>
+
+        <article class="real-block reveal" id="real-education">
+          <div class="real-head">
+            <span class="real-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17"/><path d="M5 11.2V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.8"/></svg></span>
+            <div><p class="kicker">Éducation</p><h3>Promouvoir l'éducation et révéler les talents de demain</h3></div>
+          </div>
+          <div class="real-text">
+            <p>Parce que l'éducation est la clé d'un avenir meilleur, la Fondation Giv'in Love place la réussite scolaire et l'égalité des chances au cœur de ses actions. À travers des projets concrets, elle offre aux jeunes les moyens de développer leurs compétences, de croire en leur potentiel et de devenir les acteurs du développement de leur communauté.</p>
+            <h4>Une école primaire à étage (R+1) &mdash; 2017</h4>
+            <p>L'un des tout premiers grands chantiers de la Fondation : une école primaire à deux niveaux, bâtie au cœur d'un village de Côte d'Ivoire, là où les enfants n'avaient pas de salles de classe en dur. Du CE2 au CM2, des centaines d'écoliers y apprennent aujourd'hui à lire, écrire et rêver leur avenir.</p>
+            <h4>Réhabilitation d'une salle informatique</h4>
+            <p>En partenariat avec l'<strong>Amicale des Anciens Élèves du Collège d'Évron de Lakota (2ACE)</strong>, la Fondation a réhabilité et entièrement équipé une salle informatique de <strong>50 postes de travail</strong>. Les élèves étudient désormais dans de meilleures conditions, se familiarisent avec les outils numériques et acquièrent les compétences indispensables à leur réussite scolaire et à leur insertion professionnelle.</p>
+            <h4>Distribution de kits scolaires et de matériel informatique</h4>
+            <p>Afin de soutenir les familles et de favoriser l'accès à une éducation de qualité, la Fondation a distribué des <strong>kits scolaires</strong> ainsi que du <strong>matériel informatique</strong> à plus de <strong>1 000 élèves</strong> du département de Lakota. Des centaines d'enfants ont ainsi pu commencer leur année scolaire avec le matériel nécessaire pour apprendre dans les meilleures conditions.</p>
+            <h4>Encourager le leadership féminin et l'excellence scolaire</h4>
+            <p>Convaincue que les jeunes filles jouent un rôle essentiel dans le développement de la société, la Fondation a animé une journée d'échanges avec les élèves du <strong>Collège Catholique Notre-Dame d'Évron de Lakota</strong> sur le thème <em>« Quel leadership pour la jeune fille en milieu scolaire ? »</em>. Organisée avec l'<strong>Union Nationale des Jeunes de Côte d'Ivoire (UNJCI)</strong> de Divo, cette rencontre a encouragé les jeunes filles à croire en leurs capacités et à devenir des modèles de réussite.</p>
+          </div>
+          <div class="real-gallery">
+            <button type="button" class="ph">
+              <img src="assets/img/ecole-primaire-2017-1.jpg" alt="École primaire à étage (R+1) bâtie en 2017 par la Fondation, au cœur d'un village de Côte d'Ivoire." loading="lazy">
+              <span class="real-cap-src">École primaire à étage (R+1) bâtie en 2017 par la Fondation, au cœur d'un village de Côte d'Ivoire.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/ecole-primaire-2017-2.jpg" alt="Sur la façade, une plaque commémore le don de la famille Decurey à la Côte d'Ivoire." loading="lazy">
+              <span class="real-cap-src">Sur la façade, une plaque commémore le don de la famille Decurey à la Côte d'Ivoire.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/ecole-primaire-2017-3.jpg" alt="Les classes s'échelonnent du CE2 au CM2, avec le bureau de la Direction." loading="lazy">
+              <span class="real-cap-src">Les classes s'échelonnent du CE2 au CM2, avec le bureau de la Direction.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/ecole-primaire-2017-4.jpg" alt="À l'arrière, des claustras assurent la ventilation et une citerne fournit l'eau." loading="lazy">
+              <span class="real-cap-src">À l'arrière, des claustras assurent la ventilation et une citerne fournit l'eau.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/ecole-primaire-2017-5.jpg" alt="Vue d'ensemble du bâtiment, solide et lumineux, sous les palmiers." loading="lazy">
+              <span class="real-cap-src">Vue d'ensemble du bâtiment, solide et lumineux, sous les palmiers.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-info-1.jpg" alt="Inauguration de la salle informatique de 50 postes, en présence des fondateurs et des partenaires (2ACE)." loading="lazy">
+              <span class="real-cap-src">Inauguration de la salle informatique de 50 postes, en présence des fondateurs et des partenaires (2ACE).</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-info-2.jpg" alt="Salle informatique de 50 postes réhabilitée et entièrement équipée, avec l'Amicale des Anciens Élèves du Collège d'Évron de Lakota" loading="lazy">
+              <span class="real-cap-src">Salle informatique de 50 postes réhabilitée et entièrement équipée, avec l'Amicale des Anciens Élèves du Collège d'Évron de Lakota (2ACE).</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-info-3.jpg" alt="Salle informatique de 50 postes réhabilitée et entièrement équipée, avec l'Amicale des Anciens Élèves du Collège d'Évron de Lakota" loading="lazy">
+              <span class="real-cap-src">Salle informatique de 50 postes réhabilitée et entièrement équipée, avec l'Amicale des Anciens Élèves du Collège d'Évron de Lakota (2ACE).</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-info-4.jpg" alt="Salle informatique de 50 postes réhabilitée et entièrement équipée, avec l'Amicale des Anciens Élèves du Collège d'Évron de Lakota" loading="lazy">
+              <span class="real-cap-src">Salle informatique de 50 postes réhabilitée et entièrement équipée, avec l'Amicale des Anciens Élèves du Collège d'Évron de Lakota (2ACE).</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-kits-1.jpg" alt="Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota." loading="lazy">
+              <span class="real-cap-src">Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-kits-2.jpg" alt="Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota." loading="lazy">
+              <span class="real-cap-src">Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-kits-3.jpg" alt="Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota." loading="lazy">
+              <span class="real-cap-src">Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-kits-4.jpg" alt="Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota." loading="lazy">
+              <span class="real-cap-src">Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-kits-5.jpg" alt="Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota." loading="lazy">
+              <span class="real-cap-src">Distribution de kits scolaires et de matériel informatique à plus de 1 000 élèves du département de Lakota.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-leadership-1.jpg" alt="Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec" loading="lazy">
+              <span class="real-cap-src">Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec l'UNJCI de Divo.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-leadership-2.jpg" alt="Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec" loading="lazy">
+              <span class="real-cap-src">Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec l'UNJCI de Divo.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-leadership-3.jpg" alt="Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec" loading="lazy">
+              <span class="real-cap-src">Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec l'UNJCI de Divo.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-leadership-4.jpg" alt="Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec" loading="lazy">
+              <span class="real-cap-src">Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec l'UNJCI de Divo.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/edu-leadership-5.jpg" alt="Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec" loading="lazy">
+              <span class="real-cap-src">Journée leadership au Collège Catholique Notre-Dame de Lakota : « Quel leadership pour la jeune fille en milieu scolaire ? », avec l'UNJCI de Divo.</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="real-block reveal" id="real-sante">
+          <div class="real-head">
+            <span class="real-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+            <div><p class="kicker">Santé</p><h3>Accompagner les enfants les plus fragiles</h3></div>
+          </div>
+          <div class="real-text">
+            <p>Depuis <strong>2021</strong>, la Fondation Giv'in Love accompagne financièrement des enfants atteints d'<strong>Infirmité Motrice Cérébrale (IMC)</strong>, afin de leur permettre d'accéder à des séances de rééducation essentielles à leur développement, à leur autonomie et à leur bien-être.</p>
+            <p>Cet engagement est mené en partenariat avec l'ONG <strong>Amour d'Enfant, Cœur d'Enfant</strong>, basée à Abidjan et présidée par Madame Marcelle Gbahou, dont le dévouement est remarquable. En reconnaissance de son soutien constant à cette noble cause, la Présidente de la Fondation Giv'in Love a été élevée au rang d'<strong>Ambassadrice</strong> par l'association.</p>
+          </div>
+          <div class="real-gallery">
+            <button type="button" class="ph">
+              <img src="assets/img/sante-1.jpg" alt="Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan" loading="lazy">
+              <span class="real-cap-src">Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan).</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/sante-2.jpg" alt="Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan" loading="lazy">
+              <span class="real-cap-src">Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan).</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/sante-3.jpg" alt="Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan" loading="lazy">
+              <span class="real-cap-src">Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan).</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/sante-4.jpg" alt="Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan" loading="lazy">
+              <span class="real-cap-src">Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan).</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/sante-5.jpg" alt="Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan" loading="lazy">
+              <span class="real-cap-src">Soutien aux enfants atteints d'Infirmité Motrice Cérébrale (IMC), en partenariat avec l'ONG Amour d'Enfant, Cœur d'Enfant (Abidjan).</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="real-block reveal" id="real-femmes">
+          <div class="real-head">
+            <span class="real-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4.97-2.3 8-6.5 8-11V5l-8-3-8 3v6c0 4.5 3.03 8.7 8 11Z"/></svg></span>
+            <div><p class="kicker">Femmes</p><h3>Autonomiser les femmes pour bâtir un avenir durable</h3></div>
+          </div>
+          <div class="real-text">
+            <p>Convaincue que l'autonomisation des femmes est un levier essentiel de développement, la Fondation Giv'in Love œuvre aux côtés des communautés rurales afin de renforcer leur indépendance économique.</p>
+            <p>Dans cette dynamique, la Fondation a offert un <strong>congélateur</strong> aux mères de l'Association des Femmes du quartier <strong>Djorogualilié</strong>, à Lakota, leur permettant de développer des activités génératrices de revenus et d'améliorer durablement les conditions de vie de leurs familles.</p>
+            <p>Elle a également honoré la Présidente de l'Association des Femmes de <strong>Djokouehililié</strong>, à Gnakouboué (département de Lakota), en l'intronisant pour son engagement exemplaire. À cette occasion, la Fondation a financé un <strong>projet de culture du manioc</strong>, offrant aux femmes les moyens de développer une activité agricole pérenne et de renforcer leur autonomie financière.</p>
+            <p>À travers ces initiatives, la Fondation réaffirme sa volonté d'accompagner les femmes dans leur épanouissement, convaincue que leur autonomie constitue l'un des piliers d'un développement durable et solidaire.</p>
+          </div>
+          <video class="real-video" controls preload="none" poster="assets/img/femmes-video-poster.jpg">
+            <source src="assets/img/givin-love-terrain.mp4" type="video/mp4">
+            Votre navigateur ne peut pas lire cette vidéo.
+          </video>
+          <div class="real-gallery">
+            <button type="button" class="ph">
+              <img src="assets/img/femme-1.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-2.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-3.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-4.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-5.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-6.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-7.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-8.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-9.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-10.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+            <button type="button" class="ph">
+              <img src="assets/img/femme-11.jpg" alt="Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un proje" loading="lazy">
+              <span class="real-cap-src">Aux côtés des associations de femmes de Lakota : intronisation d'une présidente, remise d'un congélateur et financement d'un projet de culture du manioc.</span>
+            </button>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -226,35 +441,11 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
   </button>
 
-  <!-- Données de la galerie de l'école (masquées, lues par le lightbox) -->
-  <div class="ecole-gallery-data" hidden aria-hidden="true">
-    <figure>
-      <img src="assets/img/ecole-primaire-2017-1.jpg" alt="Façade de l'école primaire à étage (R+1) construite par la Fondation Giv'in Love en 2017 en Côte d'Ivoire">
-      <figcaption><strong>Une école primaire à étage (R+1) — 2017.</strong> L'un des tout premiers grands chantiers de la Fondation Giv'in Love : une école primaire à deux niveaux, bâtie au cœur d'un village de Côte d'Ivoire, là où les enfants n'avaient pas de salles de classe en dur. Du CE2 au CM2, des centaines d'écoliers y apprennent aujourd'hui à lire, écrire et rêver leur avenir. 🇨🇭🇨🇮</figcaption>
-    </figure>
-    <figure>
-      <img src="assets/img/ecole-primaire-2017-2.jpg" alt="Plaque commémorative de don de la famille Decurey apposée sur l'école primaire en Côte d'Ivoire">
-      <figcaption>Sur la façade, une plaque commémorative rappelle le don des fondateurs, la famille Decurey : le témoignage durable de leur engagement auprès de la Côte d'Ivoire 🇨🇮.</figcaption>
-    </figure>
-    <figure>
-      <img src="assets/img/ecole-primaire-2017-3.jpg" alt="Salles de classe du CE2 au CM2 et bureau de la Direction de l'école primaire">
-      <figcaption>Les salles de classe s'échelonnent du CE2 au CM2, avec le bureau de la Direction : une véritable école de village, complète et fonctionnelle.</figcaption>
-    </figure>
-    <figure>
-      <img src="assets/img/ecole-primaire-2017-4.jpg" alt="Vue arrière de l'école montrant les claustras de ventilation et la citerne d'eau">
-      <figcaption>À l'arrière, les claustras assurent une ventilation naturelle des classes et une citerne fournit l'eau : un bâtiment pensé pour durer et pour le confort des élèves.</figcaption>
-    </figure>
-    <figure>
-      <img src="assets/img/ecole-primaire-2017-5.jpg" alt="Vue d'angle de l'école primaire à étage sous un ciel nuageux">
-      <figcaption>Vue d'ensemble du bâtiment, solide et lumineux. Chaque matin, sous les palmiers, cette école rappelle qu'une salle de classe peut changer le destin de tout un village.</figcaption>
-    </figure>
-  </div>
-
-  <div class="lightbox" id="ecole-lb" role="dialog" aria-modal="true" aria-label="Photo agrandie de l'école" aria-hidden="true">
+  <div class="lightbox" id="gallery-lb" role="dialog" aria-modal="true" aria-label="Photo agrandie" aria-hidden="true">
     <button class="lb-btn lb-close" type="button" aria-label="Fermer">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
-    <button class="lb-btn lb-prev" type="button" aria-label="Photo précédente">
+    <button class="lb-btn lb-prev" type="button" aria-label="Photo precedente">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
     </button>
     <figure>
@@ -268,24 +459,24 @@
 
   <script src="js/main.js" defer></script>
   <script>
-  /* Lightbox de la galerie de l'école (autonome, propre à cette page) */
+  /* Lightbox generique des galeries "Nos realisations" (autonome) */
   (function () {
-    var lb = document.getElementById('ecole-lb');
+    var lb = document.getElementById('gallery-lb');
     if (!lb) return;
-    var figs = Array.prototype.slice.call(document.querySelectorAll('.ecole-gallery-data figure'));
-    if (!figs.length) return;
     var lbImg = lb.querySelector('img');
     var lbCap = lb.querySelector('figcaption');
-    var cur = 0;
+    var group = [], cur = 0;
     function show(i) {
-      cur = (i + figs.length) % figs.length;
-      var img = figs[cur].querySelector('img');
-      lbImg.src = img.getAttribute('data-full') || img.src;
-      lbImg.alt = img.alt;
-      lbCap.innerHTML = figs[cur].querySelector('figcaption').innerHTML;
+      cur = (i + group.length) % group.length;
+      var b = group[cur];
+      var im = b.querySelector('img');
+      lbImg.src = im.getAttribute('data-full') || im.src;
+      lbImg.alt = im.alt;
+      var cap = b.querySelector('.real-cap-src');
+      lbCap.innerHTML = cap ? cap.innerHTML : im.alt;
     }
-    function open(i) {
-      show(i);
+    function open(items, i) {
+      group = items; show(i);
       lb.classList.add('open');
       lb.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -295,8 +486,10 @@
       lb.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
-    var opener = document.querySelector('[data-ecole-open]');
-    if (opener) opener.addEventListener('click', function () { open(0); });
+    Array.prototype.slice.call(document.querySelectorAll('.real-gallery')).forEach(function (g) {
+      var items = Array.prototype.slice.call(g.querySelectorAll('.ph'));
+      items.forEach(function (b, i) { b.addEventListener('click', function () { open(items, i); }); });
+    });
     lb.querySelector('.lb-close').addEventListener('click', close);
     lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
     lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
@@ -309,5 +502,6 @@
     });
   })();
   </script>
+
 </body>
 </html>
