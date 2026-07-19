@@ -21,6 +21,17 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .enfance-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .enfance-gallery button{padding:0;border:0;background:none;cursor:pointer;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.12);transition:transform .25s ease,box-shadow .25s ease}
+    .enfance-gallery button:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.18)}
+    .enfance-gallery img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+    .enf-lb{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(15,18,20,.9);padding:24px}
+    .enf-lb.open{display:flex}
+    .enf-lb img{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .enf-lb button{position:absolute;top:18px;right:22px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+    .enf-lb button:hover{background:rgba(255,255,255,.28)}
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -143,7 +154,14 @@
           </ul>
         </div>
         <div class="reveal-right">
-          <div class="media-frame"><img src="assets/img/enfance-jeux.jpg" alt="Écolier rayonnant de joie dans sa salle de classe" loading="lazy" width="900" height="600"></div>
+          <div class="enfance-gallery">
+            <button type="button"><img src="assets/img/enfance-1.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="877" height="960"></button>
+            <button type="button"><img src="assets/img/enfance-2.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
+            <button type="button"><img src="assets/img/enfance-3.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
+            <button type="button"><img src="assets/img/enfance-4.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
+            <button type="button"><img src="assets/img/enfance-5.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
+            <button type="button"><img src="assets/img/enfance-6.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="960" height="720"></button>
+          </div>
         </div>
       </div>
     </section>
@@ -281,6 +299,23 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
   </button>
 
+  <div class="enf-lb" id="enfLb" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+    <button type="button" aria-label="Fermer">&times;</button>
+    <img src="" alt="">
+  </div>
+  <script>
+    (function(){
+      var lb=document.getElementById('enfLb'),lbImg=lb.querySelector('img');
+      function close(){lb.classList.remove('open');lbImg.src='';}
+      document.querySelectorAll('.enfance-gallery button').forEach(function(b){
+        b.addEventListener('click',function(){
+          var im=b.querySelector('img');lbImg.src=im.src;lbImg.alt=im.alt;lb.classList.add('open');
+        });
+      });
+      lb.addEventListener('click',function(e){if(e.target!==lbImg)close();});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+    })();
+  </script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
