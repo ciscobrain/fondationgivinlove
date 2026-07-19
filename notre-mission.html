@@ -22,10 +22,12 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .enfance-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    .enfance-gallery button{padding:0;border:0;background:none;cursor:pointer;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.12);transition:transform .25s ease,box-shadow .25s ease}
-    .enfance-gallery button:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.18)}
-    .enfance-gallery img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+    .enfance-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:.7rem;margin-top:1.6rem}
+    .enfance-gallery .ph{padding:0;border:0;background:none;cursor:zoom-in;border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:1/1}
+    .enfance-gallery .ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+    .enfance-gallery .ph:hover img{transform:scale(1.07)}
+    .enfance-gallery .ph:focus-visible{outline:3px solid var(--bleu);outline-offset:2px}
+    @media(max-width:600px){.enfance-gallery{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}}
     .enf-lb{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(15,18,20,.9);padding:24px}
     .enf-lb.open{display:flex}
     .enf-lb img{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
@@ -142,7 +144,7 @@
       </div>
     </section>
     <section class="section section-soft" id="enfance">
-      <div class="wrap grid-2">
+      <div class="wrap">
         <div class="reveal-left">
           <p class="kicker">Enfance</p>
           <h2>Célébrons les enfants, célébrons la vie</h2>
@@ -153,15 +155,13 @@
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Activités éducatives et festives pour les plus jeunes</li>
           </ul>
         </div>
-        <div class="reveal-right">
-          <div class="enfance-gallery">
-            <button type="button"><img src="assets/img/enfance-1.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="877" height="960"></button>
-            <button type="button"><img src="assets/img/enfance-2.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
-            <button type="button"><img src="assets/img/enfance-3.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
-            <button type="button"><img src="assets/img/enfance-4.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
-            <button type="button"><img src="assets/img/enfance-5.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
-            <button type="button"><img src="assets/img/enfance-6.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="960" height="720"></button>
-          </div>
+        <div class="enfance-gallery reveal">
+          <button type="button" class="ph"><img src="assets/img/enfance-1.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="877" height="960"></button>
+          <button type="button" class="ph"><img src="assets/img/enfance-2.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
+          <button type="button" class="ph"><img src="assets/img/enfance-3.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
+          <button type="button" class="ph"><img src="assets/img/enfance-4.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
+          <button type="button" class="ph"><img src="assets/img/enfance-5.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="720" height="960"></button>
+          <button type="button" class="ph"><img src="assets/img/enfance-6.jpg" alt="Journée « Célébrons les enfants, célébrons la vie »" loading="lazy" width="960" height="720"></button>
         </div>
       </div>
     </section>
@@ -307,7 +307,7 @@
     (function(){
       var lb=document.getElementById('enfLb'),lbImg=lb.querySelector('img');
       function close(){lb.classList.remove('open');lbImg.src='';}
-      document.querySelectorAll('.enfance-gallery button').forEach(function(b){
+      document.querySelectorAll('.enfance-gallery .ph').forEach(function(b){
         b.addEventListener('click',function(){
           var im=b.querySelector('img');lbImg.src=im.src;lbImg.alt=im.alt;lb.classList.add('open');
         });
