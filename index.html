@@ -36,6 +36,17 @@
     .photo-strip img { width: 100%; height: auto; display: block; }
     .photo-strip .ps-h { flex: 16; }   /* photo horizontale 4:3 */
     .photo-strip .ps-v { flex: 9; }    /* photo verticale 3:4  */
+    /* Bannière hero : texte superposé sur la photo, au-dessus de la bande de 3 photos */
+    .hero-banner { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .hero-banner .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 26%; }
+    .hero-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9,23,42,.5) 0%, rgba(9,23,42,.62) 100%); }
+    .hero-banner .hero-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 480px; padding: clamp(3rem, 7vw, 5.5rem) clamp(1.2rem, 5vw, 3rem); }
+    .home-hero .hero-banner h1 { color: #fff; }
+    .home-hero .hero-banner .kicker { color: #fff; }
+    .home-hero .hero-banner .lead { color: rgba(255,255,255,.92); }
+    .home-hero .hero-banner .hero-actions { margin-top: 2rem; }
+    .home-hero .hero-banner .btn-ghost { color: #fff; border-color: rgba(255,255,255,.7); }
+    .home-hero .hero-banner .btn-ghost:hover { background: rgba(255,255,255,.15); color: #fff; }
     @media (max-width: 640px) {
       .photo-strip { flex-direction: column; }
       .photo-strip figure { flex: none; }
@@ -95,16 +106,21 @@
     <!-- ================= HERO (3 photos juxtaposées) ================= -->
     <section class="home-hero">
       <div class="wrap">
-        <p class="kicker k-center reveal in-view">Fondation humanitaire · Suisse 🇨🇭 – Côte d'Ivoire 🇨🇮</p>
-        <h1 class="reveal in-view d1">Construisons ensemble un avenir meilleur pour les familles de Côte d'Ivoire.</h1>
-        <p class="lead reveal in-view d2">Depuis 2017, nous œuvrons avec amour pour l'éducation, la santé, l'autonomisation des femmes et la protection de l'enfance.</p>
-        <div class="hero-actions reveal in-view d3">
-          <a class="btn btn-primary btn-lg" href="notre-histoire.html">Découvrir la Fondation</a>
-          <a class="btn btn-don btn-lg" href="faire-un-don.html">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35 4.6 14.1a5.4 5.4 0 0 1 0-7.7 5.6 5.6 0 0 1 7.8 0l-.4-.4.4.4a5.6 5.6 0 0 1 7.8 0 5.4 5.4 0 0 1 0 7.7Z"/></svg>
-            Faire un don
-          </a>
-          <a class="btn btn-ghost btn-lg" href="nos-actions.html">Nos actions</a>
+        <div class="hero-banner reveal in-view">
+          <img class="hero-bg" src="assets/img/accueil-hero.jpg" alt="La présidente de la Fondation entourée d'une foule d'enfants dans un village de Côte d'Ivoire" width="960" height="640" fetchpriority="high">
+          <div class="hero-inner">
+            <p class="kicker k-center">Fondation humanitaire · Suisse 🇨🇭 – Côte d'Ivoire 🇨🇮</p>
+            <h1>Construisons ensemble un avenir meilleur pour les familles de Côte d'Ivoire.</h1>
+            <p class="lead">Depuis 2017, nous œuvrons avec amour pour l'éducation, la santé, l'autonomisation des femmes et la protection de l'enfance.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-lg" href="notre-histoire.html">Découvrir la Fondation</a>
+              <a class="btn btn-don btn-lg" href="faire-un-don.html">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.35 4.6 14.1a5.4 5.4 0 0 1 0-7.7 5.6 5.6 0 0 1 7.8 0l-.4-.4.4.4a5.6 5.6 0 0 1 7.8 0 5.4 5.4 0 0 1 0 7.7Z"/></svg>
+                Faire un don
+              </a>
+              <a class="btn btn-ghost btn-lg" href="nos-actions.html">Nos actions</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="photo-strip reveal in-view d3">
