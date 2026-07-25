@@ -43,6 +43,8 @@
     .hero-page .hero-media{overflow:hidden}
     .hero-page .mh-full{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(1.12) contrast(1.04) saturate(1.05);transform:none;animation:none}
     .hero-page::after{background:linear-gradient(90deg,rgba(8,12,20,.8) 0%,rgba(8,12,20,.5) 42%,rgba(8,12,20,.22) 72%,rgba(8,12,20,.12) 100%)}
+    .edu-row{margin-top:clamp(1.8rem,4vw,3rem)}
+    .edu-row .media-frame > video{display:block;width:100%;height:auto;background:#000}
   </style>
   <script type="application/ld+json">
   {
@@ -174,19 +176,30 @@
       </div>
     </section>
     <section class="section" id="education">
-      <div class="wrap grid-2">
+      <div class="wrap">
         <div class="reveal-left">
-          <div class="media-frame"><img src="assets/img/education-savoir.jpg" alt="Élèves en uniforme rassemblés joyeusement devant leur école" loading="lazy" width="960" height="720"></div>
-        </div>
-        <div class="reveal-right">
           <p class="kicker">Éducation</p>
           <h2>Un cadre éducatif sûr pour les jeunes filles</h2>
-          <p class="lead">Construction en cours d’un foyer d’hébergement pour jeunes filles dans la sous-préfecture de Gnagbodougnoa (département de Gagnoa), en partenariat avec l’Association des Filles Guébié de la Diaspora.</p>
-          <p class="lead"><strong>Ensemble, offrons un cadre éducatif sécurisé et serein aux jeunes filles de Gnagbodougnoa.</strong></p>
-          <ul class="checklist">
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Réhabilitation de 3 établissements scolaires détruits par le temps et les catastrophes naturelles</li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Caravane de sensibilisation de la jeune fille sur différentes thématiques dans 10 établissements secondaires</li>
-          </ul>
+        </div>
+        <div class="grid-2 edu-row">
+          <div class="reveal-left">
+            <div class="media-frame"><video class="edu-video" src="assets/img/hebergement-guebie.mp4" poster="assets/img/hebergement-guebie-poster.jpg" controls preload="none" playsinline></video></div>
+          </div>
+          <div class="reveal-right">
+            <p class="lead">Construction en cours d’un foyer d’hébergement pour jeunes filles dans la sous-préfecture de Gnagbodougnoa (département de Gagnoa), en partenariat avec l’Association des Filles Guébié de la Diaspora.</p>
+          </div>
+        </div>
+        <div class="grid-2 edu-row">
+          <div class="reveal-left">
+            <div class="media-frame"><img src="assets/img/education-savoir.jpg" alt="Élèves en uniforme rassemblés joyeusement devant leur école" loading="lazy" width="960" height="720"></div>
+          </div>
+          <div class="reveal-right">
+            <p class="lead"><strong>Ensemble, offrons un cadre éducatif sécurisé et serein aux jeunes filles de Gnagbodougnoa.</strong></p>
+            <ul class="checklist">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Réhabilitation de 3 établissements scolaires détruits par le temps et les catastrophes naturelles</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Caravane de sensibilisation de la jeune fille sur différentes thématiques dans 10 établissements secondaires</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
