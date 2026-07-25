@@ -33,6 +33,10 @@
     .enf-lb img{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
     .enf-lb button{position:absolute;top:18px;right:22px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:26px;line-height:1;cursor:pointer}
     .enf-lb button:hover{background:rgba(255,255,255,.28)}
+    /* En-tête : photo affichée EN ENTIER (non recadrée) sur un fond flouté */
+    .hero-page .hero-media{overflow:hidden}
+    .hero-page .mh-blur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);filter:blur(30px) brightness(.55);animation:none}
+    .hero-page .mh-full{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:none;animation:none}
   </style>
   <script type="application/ld+json">
   {
@@ -76,7 +80,8 @@
   <main id="contenu">
     <section class="hero hero-page">
       <div class="hero-media">
-        <img src="assets/img/mission-hero.jpg" alt="Cérémonie de remise d'équipements de la Fondation Giv'in Love à des villages de Côte d'Ivoire" fetchpriority="high" style="object-position:center 42%">
+        <img class="mh-blur" src="assets/img/mission-hero.jpg" alt="" aria-hidden="true">
+        <img class="mh-full" src="assets/img/mission-hero.jpg" alt="Cérémonie de remise d'équipements de la Fondation Giv'in Love à des villages de Côte d'Ivoire" fetchpriority="high">
       </div>
       <div class="wrap hero-inner">
         <nav aria-label="Fil d'Ariane">
