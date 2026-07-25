@@ -37,6 +37,21 @@
     .hero-page .hero-media{overflow:hidden}
     .hero-page .mh-blur{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15);filter:blur(30px) brightness(.55);animation:none}
     .hero-page .mh-full{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:none;animation:none}
+    /* Sous-sections « projets » avec emplacements photo (à remplacer par de vraies photos) */
+    .proj-head{margin:2.6rem 0 1.4rem}
+    .proj-head .kicker{margin-bottom:.5rem}
+    .photo-slot{position:relative;aspect-ratio:16/10;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,var(--bleu),var(--bleu-nuit))}
+    .photo-slot.slot-green{background:linear-gradient(135deg,var(--vert),var(--vert-fonce))}
+    .photo-slot.slot-gold{background:linear-gradient(135deg,var(--or),#8a6d12)}
+    .photo-slot .slot-inner{position:relative;z-index:1;text-align:center;color:#fff;padding:1rem 1.2rem;max-width:92%}
+    .photo-slot .slot-inner svg{width:32px;height:32px;opacity:.9;margin-bottom:.45rem}
+    .photo-slot .slot-inner b{display:block;font-family:var(--font-title);font-weight:600;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase}
+    .photo-slot .slot-inner small{display:block;margin-top:.3rem;font-size:.78rem;color:rgba(255,255,255,.88);line-height:1.45}
+    .photo-slot > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+    .proj-feature .photo-slot{border-radius:var(--radius);box-shadow:var(--shadow-lg)}
+    .proj-card .card-body h4{margin:0 0 .5rem;font-size:1.08rem}
+    .proj-slogan{color:var(--bleu-fonce);font-weight:600}
+    [data-theme="dark"] .proj-slogan{color:var(--or-clair)}
   </style>
   <script type="application/ld+json">
   {
@@ -110,6 +125,46 @@
           <button type="button" class="ph"><img src="assets/img/eau-4.jpg" alt="Réhabilitation d’une source d’eau dans le district du Goh-Djiboua" loading="lazy" width="1080" height="810"></button>
         </div>
       </div>
+
+      <div class="wrap">
+        <div class="proj-head reveal">
+          <p class="kicker">Nos projets</p>
+          <h3>D’autres actions humanitaires</h3>
+        </div>
+        <div class="grid-3">
+
+          <article class="card proj-card reveal">
+            <div class="card-media photo-slot">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Noël avec les enfants en situation de handicap</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : humanitaire-noel.jpg -->
+              <img src="assets/img/humanitaire-noel.jpg" alt="Noël avec les enfants en situation de handicap" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h4>Célébrer Noël avec les enfants en situation de handicap</h4>
+              <p>Chaque Noël, nous allons à la rencontre des enfants en situation de handicap, avec un objectif qui nous porte : <strong>offrir le sourire à 1000 enfants</strong>.</p>
+            </div>
+          </article>
+
+          <article class="card proj-card reveal">
+            <div class="card-media photo-slot slot-green">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Distribution de kits alimentaires</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : humanitaire-kits.jpg -->
+              <img src="assets/img/humanitaire-kits.jpg" alt="Distribution de kits alimentaires aux familles sinistrées" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h4>Distribution de kits alimentaires</h4>
+              <p>Distribution de kits alimentaires aux familles victimes de catastrophes naturelles, pour répondre à l’urgence et soulager les foyers les plus touchés.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
     </section>
     <section class="section section-soft" id="developpement-familial">
       <div class="wrap grid-2">
@@ -143,6 +198,29 @@
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Accompagnement des femmes enceintes</li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Développement de maternités de proximité</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="proj-head reveal">
+          <p class="kicker">Notre projet phare</p>
+          <h3>Une ambulance médicale équipée, au plus près des populations</h3>
+        </div>
+        <div class="proj-feature grid-2">
+          <div class="reveal-left">
+            <div class="photo-slot">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Ambulance médicale équipée</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : sante-ambulance.jpg -->
+              <img src="assets/img/sante-ambulance.jpg" alt="Ambulance médicale équipée de la Fondation Giv'in Love" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+          <div class="reveal-right">
+            <p>Projet d’acquisition d’une ambulance médicale équipée pour les urgences, l’échographie et le scanner en local, afin de réduire la mortalité infantile, de faciliter le suivi des futures mamans et de permettre une prise en charge immédiate des patients, à moindre coût.</p>
+            <p class="proj-slogan">Aucune vie n’est plus importante qu’une autre. Santé pour tous.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -185,6 +263,62 @@
           </ul>
         </div>
       </div>
+
+      <div class="wrap">
+        <div class="proj-head reveal">
+          <p class="kicker">Nos projets</p>
+          <h3>Ce que nous construisons pour l’éducation</h3>
+        </div>
+        <div class="grid-3">
+
+          <article class="card proj-card reveal">
+            <div class="card-media photo-slot">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Foyer de jeunes filles — Gnagbodougnoa</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : edu-foyer.jpg -->
+              <img src="assets/img/edu-foyer.jpg" alt="Foyer d'hébergement pour jeunes filles à Gnagbodougnoa" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h4>Un foyer d’hébergement pour jeunes filles à Gnagbodougnoa</h4>
+              <p>Projet en cours de construction d’un foyer d’hébergement pour jeunes filles dans la sous-préfecture de Gnagbodougnoa, département de Gagnoa, en partenariat avec l’Association des Filles Guébié de la Diaspora.</p>
+              <p class="proj-slogan">Ensemble, offrons un cadre éducatif sécurisé et serein aux jeunes filles de Gnagbodougnoa.</p>
+            </div>
+          </article>
+
+          <article class="card proj-card reveal">
+            <div class="card-media photo-slot slot-green">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Réhabilitation d’établissements scolaires</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : edu-rehabilitation.jpg -->
+              <img src="assets/img/edu-rehabilitation.jpg" alt="Réhabilitation d'établissements scolaires" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h4>Réhabilitation de 3 établissements scolaires</h4>
+              <p>Remise en état de trois établissements scolaires détruits par le temps et les catastrophes naturelles, pour rendre aux élèves des salles de classe sûres et dignes.</p>
+            </div>
+          </article>
+
+          <article class="card proj-card reveal">
+            <div class="card-media photo-slot slot-gold">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Caravane de sensibilisation</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : edu-caravane.jpg -->
+              <img src="assets/img/edu-caravane.jpg" alt="Caravane de sensibilisation de la jeune fille" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h4>Caravane de sensibilisation de la jeune fille</h4>
+              <p>Une caravane qui va à la rencontre des élèves autour de différentes thématiques, dans 10 établissements secondaires.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
     </section>
     <section class="section section-soft" id="femmes">
       <div class="wrap grid-2">
@@ -200,6 +334,29 @@
         </div>
         <div class="reveal-right">
           <div class="media-frame"><img src="assets/img/femme-formation.jpg" alt="Femme suivant une formation professionnelle en informatique" loading="lazy" width="900" height="600"></div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="proj-head reveal">
+          <p class="kicker">Notre projet phare</p>
+          <h3>La transformation du manioc pour l’autonomisation des femmes</h3>
+        </div>
+        <div class="proj-feature grid-2">
+          <div class="reveal-left">
+            <div class="photo-slot slot-gold">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Production et transformation du manioc</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : femmes-manioc.jpg -->
+              <img src="assets/img/femmes-manioc.jpg" alt="Production et transformation du manioc par les femmes du district du Goh-Djiboua" loading="lazy" onerror="this.remove()">
+            </div>
+          </div>
+          <div class="reveal-right">
+            <p>Projet de production et de transformation du manioc pour l’autonomisation de plus de <strong>1000 femmes</strong> dans le district du Goh-Djiboua.</p>
+            <p class="proj-slogan">La femme est le pilier du foyer et de la société.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -218,6 +375,61 @@
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Agriculture écologique</li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Villages propres</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="proj-head reveal">
+          <p class="kicker">Nos projets</p>
+          <h3>Préservation du climat</h3>
+        </div>
+        <div class="grid-3">
+
+          <article class="card proj-card reveal">
+            <div class="card-media photo-slot slot-green">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Reboisement — 1000 arbres</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : climat-arbres.jpg -->
+              <img src="assets/img/climat-arbres.jpg" alt="Planting d'arbres pour le reboisement" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h4>Planter 1000 arbres pour le reboisement</h4>
+              <p>Une campagne de reboisement pour restaurer le couvert végétal et lutter contre la dégradation des sols.</p>
+            </div>
+          </article>
+
+          <article class="card proj-card reveal">
+            <div class="card-media photo-slot">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Agriculture écologique</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : climat-agriculture.jpg -->
+              <img src="assets/img/climat-agriculture.jpg" alt="Sensibilisation aux pratiques agricoles écologiques" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h4>Éduquer aux pratiques agricoles écologiques</h4>
+              <p>Former et accompagner les populations vers une agriculture respectueuse de l’environnement et durable.</p>
+            </div>
+          </article>
+
+          <article class="card proj-card reveal">
+            <div class="card-media photo-slot slot-gold">
+              <div class="slot-inner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <b>Photo à venir</b><small>Kits d’assainissement</small>
+              </div>
+              <!-- Déposez la photo ici sous le nom : climat-assainissement.jpg -->
+              <img src="assets/img/climat-assainissement.jpg" alt="Distribution de kits d'assainissement" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="card-body">
+              <h4>Un environnement sain pour tous</h4>
+              <p>Sensibiliser les populations au maintien d’un environnement sain, avec la distribution de kits d’assainissement.</p>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
