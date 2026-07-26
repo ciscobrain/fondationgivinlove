@@ -51,6 +51,8 @@
     .real-gallery .ph:hover img { transform: scale(1.07); }
     .real-gallery .ph:focus-visible { outline: 3px solid var(--bleu); outline-offset: 2px; }
     .real-cap-src { display: none; }
+    .real-video-wrap { margin-top: 1.2rem; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow); max-width: 760px; }
+    .real-video { display: block; width: 100%; height: auto; background: #000; }
     /* Carte d'aperçu transformée en bouton (ouvre la galerie) — non utilisé ici, cartes = liens ancre */
     @media (max-width: 600px) { .real-block { padding: 1.3rem; } .real-gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); } }
   </style>
@@ -489,6 +491,13 @@
               <img src="assets/img/humanitaire-17.jpg" alt="Don de vivres et de biens de première nécessité remis aux notables de la communauté" loading="lazy">
               <span class="real-cap-src">Don de vivres et de biens de première nécessité remis aux notables de la communauté.</span>
             </button>
+          </div>
+          <div class="real-sub">
+            <h4>Un appel à la solidarité pour Monsieur Loba Axel</h4>
+            <p>La Fondation Giv'in Love vole au secours de Monsieur Loba Axel, dit Platini, et de sa famille, et lui porte assistance. Victime du conflit socio-communautaire de Gnakouboué, Axel se retrouve en situation de handicap, avec une mobilité réduite. Nous lançons un appel à la solidarité afin de redonner son autonomie à Monsieur Loba Axel et de lui faciliter la vie au quotidien avec sa famille.</p>
+            <div class="real-video-wrap">
+              <video class="real-video" src="assets/img/humanitaire-loba.mp4" poster="assets/img/humanitaire-loba-poster.jpg" controls preload="none" playsinline></video>
+            </div>
           </div>
         </article>
 
