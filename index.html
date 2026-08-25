@@ -53,6 +53,19 @@
     }
     /* Vignette "amour entre deux pays" : photo paysage affichée en entier (rien de coupé) */
     .media-frame.mf-wide > img { aspect-ratio: 3 / 2; }
+    /* ---- Accueil compact : héros + 3 photos + statistiques dans un seul écran ---- */
+    .home-hero { padding-top: clamp(.7rem, 2.4vh, 1.8rem); }
+    .home-hero .hero-banner .hero-inner { min-height: clamp(180px, 29vh, 300px); padding-block: clamp(1rem, 3vh, 1.8rem); }
+    .home-hero .hero-banner h1 { font-size: clamp(1.35rem, 3.1vh, 2rem); }
+    .home-hero .hero-banner .lead { font-size: clamp(.88rem, 1.9vh, 1.05rem); margin-top: .55rem; }
+    .home-hero .hero-banner .hero-actions { margin-top: clamp(.8rem, 2vh, 1.5rem); gap: .6rem; }
+    .home-hero .hero-banner .btn-lg { padding: .68rem 1.35rem; font-size: .95rem; }
+    .photo-strip { margin-top: clamp(.6rem, 1.6vh, 1.3rem); }
+    .photo-strip img { height: clamp(120px, 20vh, 220px); object-fit: cover; object-position: center 35%; }
+    .stats-grid { margin-top: clamp(-2.6rem, -3.4vh, -1.8rem); gap: clamp(.7rem, 1.6vh, 1.1rem); }
+    .stat-card { padding: clamp(.7rem, 1.7vh, 1.4rem) 1.2rem; }
+    .stat-num { font-size: clamp(1.5rem, 3.3vh, 2.35rem); }
+    .stat-label { font-size: clamp(.72rem, 1.5vh, .92rem); margin-top: .2rem; }
   </style>
   <link rel="preload" as="image" href="assets/img/accueil-1.jpg" fetchpriority="high">
   <script type="application/ld+json">
