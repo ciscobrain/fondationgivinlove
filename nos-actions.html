@@ -53,8 +53,9 @@
     .real-cap-src { display: none; }
     .real-video-wrap { margin-top: 1.2rem; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow); max-width: 760px; }
     .real-video { display: block; width: 100%; height: auto; background: #000; }
-    .real-video-cap { margin: 1.6rem 0 0; font-weight: 600; color: var(--bleu); max-width: 70ch; }
-    .real-video-cap + .real-video-wrap { margin-top: .5rem; }
+    .real-vrow { align-items: start; }
+    .real-vrow .real-video-wrap { margin-top: 0; max-width: none; }
+    .real-vrow h4 { margin-top: 0; }
     /* Carte d'aperçu transformée en bouton (ouvre la galerie) — non utilisé ici, cartes = liens ancre */
     @media (max-width: 600px) { .real-block { padding: 1.3rem; } .real-gallery { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); } }
   </style>
@@ -495,14 +496,26 @@
             </button>
           </div>
           <div class="real-sub">
-            <h4>Un appel à la solidarité pour Monsieur Loba Axel</h4>
-            <p>La Fondation Giv'in Love vole au secours de Monsieur Loba Axel, dit Platini, et de sa famille, et lui porte assistance. Victime du conflit socio-communautaire de Gnakouboué, Axel se retrouve en situation de handicap, avec une mobilité réduite. Nous lançons un appel à la solidarité afin de redonner son autonomie à Monsieur Loba Axel et de lui faciliter la vie au quotidien avec sa famille.</p>
-            <div class="real-video-wrap">
-              <video class="real-video" src="assets/img/humanitaire-loba.mp4" poster="assets/img/humanitaire-loba-poster.jpg" controls preload="none" playsinline></video>
+            <div class="grid-2 real-vrow">
+              <div class="real-video-wrap">
+                <video class="real-video" src="assets/img/humanitaire-loba.mp4" poster="assets/img/humanitaire-loba-poster.jpg" controls preload="none" playsinline></video>
+              </div>
+              <div>
+                <h4>Un appel à la solidarité pour Monsieur Loba Axel</h4>
+                <p>La Fondation Giv'in Love vole au secours de Monsieur Loba Axel, dit Platini, et de sa famille, et lui porte assistance. Victime du conflit socio-communautaire de Gnakouboué, Axel se retrouve en situation de handicap, avec une mobilité réduite. Nous lançons un appel à la solidarité afin de redonner son autonomie à Monsieur Loba Axel et de lui faciliter la vie au quotidien avec sa famille.</p>
+              </div>
             </div>
-            <p class="real-video-cap">Don de la Fondation Giv'in Love à Gnakouboué.</p>
-            <div class="real-video-wrap">
-              <video class="real-video" src="assets/img/humanitaire-gnakouboue.mp4" poster="assets/img/humanitaire-gnakouboue-poster.jpg" controls preload="none" playsinline></video>
+          </div>
+          <div class="real-sub">
+            <div class="grid-2 real-vrow">
+              <div class="real-video-wrap">
+                <video class="real-video" src="assets/img/humanitaire-gnakouboue.mp4" poster="assets/img/humanitaire-gnakouboue-poster.jpg" controls preload="none" playsinline></video>
+              </div>
+              <div>
+                <h4>Réchauffer les nuits des aînés de Gnakouboué</h4>
+                <p>Situé en Côte d'Ivoire, dans le canton Opareko (département de Lakota), le village de Gnakouboué a lancé un cri de cœur : à la tombée de la nuit, le froid se fait durement ressentir, surtout pour les plus âgés.</p>
+                <p>Le dimanche 2 août 2026, la Fondation Giv'in Love a répondu à cet appel en offrant des vêtements chauds et un tensiomètre pour veiller sur la santé des personnes âgées de la localité — un geste de proximité pour les soulager et leur rappeler qu'elles ne sont pas seules. Une nouvelle manière de poser, ensemble, « les sillons d'un monde meilleur ».</p>
+              </div>
             </div>
           </div>
         </article>
