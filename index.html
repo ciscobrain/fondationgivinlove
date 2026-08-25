@@ -62,7 +62,8 @@
     .home-hero .hero-banner .btn-lg { padding: .68rem 1.35rem; font-size: .95rem; }
     .photo-strip { margin-top: clamp(.6rem, 1.6vh, 1.3rem); }
     .photo-strip img { height: clamp(120px, 20vh, 220px); object-fit: cover; object-position: center 35%; }
-    .photo-strip figure:nth-child(2) img { object-position: center 17%; }  /* montrer le visage de la fondatrice */
+    .photo-strip figure:nth-child(2) { overflow: hidden; }  /* zoom sur la fondatrice (arrière-plan) */
+    .photo-strip figure:nth-child(2) img { object-position: center 22%; transform: scale(1.6); transform-origin: 62% 26%; }
     .stats-grid { margin-top: clamp(.4rem, 1.3vh, 1.1rem); gap: clamp(.7rem, 1.6vh, 1.1rem); }
     .stat-card { padding: clamp(.7rem, 1.7vh, 1.4rem) 1.2rem; }
     .stat-num { font-size: clamp(1.5rem, 3.3vh, 2.35rem); }
