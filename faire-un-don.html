@@ -32,6 +32,14 @@
     .twint-number span{font-family:var(--font-title);font-weight:700;font-size:1.3rem;color:var(--ink);letter-spacing:.02em}
     .twint-number button{margin-left:auto;background:var(--bleu);color:#fff;border:0;border-radius:8px;padding:.55rem 1.05rem;font-weight:600;font-size:.92rem;cursor:pointer;transition:filter .2s}
     .twint-number button:hover{filter:brightness(1.08)}
+    .paypal-box{margin-top:1rem;border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.2rem 1.3rem;background:color-mix(in srgb, #0070ba 6%, var(--bg-card))}
+    .paypal-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+    .paypal-logo{display:inline-flex;align-items:center;font-family:var(--font-title);font-weight:800;letter-spacing:.01em;background:#003087;color:#fff;padding:.25rem .6rem;border-radius:8px;font-size:.9rem}
+    .paypal-logo em{font-style:normal;color:#009cde}
+    .paypal-head strong{font-size:1.12rem}
+    .paypal-desc{color:var(--ink-soft);margin:.2rem 0 .9rem}
+    .paypal-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;background:#0070ba;color:#fff;border:0;border-radius:8px;padding:.75rem 1.1rem;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;transition:filter .2s;box-sizing:border-box}
+    .paypal-btn:hover{filter:brightness(1.08)}
   </style>
   <script type="application/ld+json">
   {
@@ -139,7 +147,17 @@
                 <span id="twint-num">+41 76 428 32 37</span>
                 <button type="button" id="twint-copy">Copier le numéro</button>
               </div>
-              <p class="form-note" style="margin-top:.9rem">🔒 TWINT fonctionne en francs suisses (CHF). Merci du fond du cœur pour votre soutien ! 💙<br>💳 Don par PayPal et carte bancaire : bientôt disponible. Un autre moyen de don ? <a href="contact.html">Contactez-nous</a>.</p>
+              <p class="form-note" style="margin-top:.9rem">🔒 TWINT fonctionne en francs suisses (CHF). Merci du fond du cœur pour votre soutien ! 💙<br>💳 Don par carte bancaire : bientôt disponible. Un autre moyen de don ? <a href="contact.html">Contactez-nous</a>.</p>
+            </div>
+            <div class="paypal-box">
+              <div class="paypal-head">
+                <span class="paypal-logo">Pay<em>Pal</em></span>
+                <strong>Faire un don par PayPal</strong>
+              </div>
+              <p class="paypal-desc">Payez en toute sécurité par carte bancaire ou compte PayPal. Le montant sélectionné ci-dessus est repris automatiquement.</p>
+              <a id="paypal-donate-btn" class="paypal-btn" href="https://paypal.me/fondationgivinlove/50EUR" target="_blank" rel="noopener">
+                Donner <span id="paypal-amount">50 €</span> via PayPal
+              </a>
             </div>
             <script>
               (function(){
@@ -151,6 +169,28 @@
                   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(done);}
                   else{try{var r=document.createRange();r.selectNode(n);var s=window.getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges();done();}catch(e){}}
                 });
+              })();
+            </script>
+            <script>
+              (function(){
+                var link=document.getElementById('paypal-donate-btn'), amountSpan=document.getElementById('paypal-amount');
+                if(!link) return;
+                var BASE='https://paypal.me/fondationgivinlove/';
+                function currentAmount(){
+                  var custom=document.getElementById('don-libre');
+                  var active=document.querySelector('.amount-btn.active');
+                  var val=(custom&&custom.value)?parseInt(custom.value,10):(active?parseInt(active.getAttribute('data-amount'),10):0);
+                  return (val&&val>0)?val:50;
+                }
+                function updatePaypal(){
+                  var val=currentAmount();
+                  link.href=BASE+val+'EUR';
+                  if(amountSpan) amountSpan.textContent=val.toLocaleString('fr-FR')+' €';
+                }
+                document.querySelectorAll('.amount-btn').forEach(function(btn){ btn.addEventListener('click', updatePaypal); });
+                var custom=document.getElementById('don-libre');
+                if(custom) custom.addEventListener('input', updatePaypal);
+                updatePaypal();
               })();
             </script>
           </div>
