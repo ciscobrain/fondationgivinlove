@@ -38,8 +38,11 @@
     .paypal-logo em{font-style:normal;color:#009cde}
     .paypal-head strong{font-size:1.12rem}
     .paypal-desc{color:var(--ink-soft);margin:.2rem 0 .9rem}
-    .paypal-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;background:#0070ba;color:#fff;border:0;border-radius:8px;padding:.75rem 1.1rem;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;transition:filter .2s;box-sizing:border-box}
-    .paypal-btn:hover{filter:brightness(1.08)}
+    .paypal-btn{display:flex;align-items:center;justify-content:center;width:100%;background:#ffc439;border:0;border-radius:24px;padding:.7rem 1.1rem;cursor:pointer;transition:filter .2s;box-sizing:border-box}
+    .paypal-btn:hover{filter:brightness(1.06)}
+    .paypal-btn .paypal-wordmark{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:700;font-size:1.35rem;letter-spacing:.01em}
+    .paypal-btn .paypal-wordmark span:first-child{color:#003087}
+    .paypal-btn .paypal-wordmark span:last-child{color:#009cde}
   </style>
   <script type="application/ld+json">
   {
@@ -155,8 +158,8 @@
                 <strong>Faire un don par PayPal</strong>
               </div>
               <p class="paypal-desc">Payez en toute sécurité par carte bancaire ou compte PayPal. Le montant sélectionné ci-dessus est repris automatiquement.</p>
-              <a id="paypal-donate-btn" class="paypal-btn" href="https://paypal.me/fondationgivinlove/50EUR" target="_blank" rel="noopener">
-                Donner <span id="paypal-amount">50 €</span> via PayPal
+              <a id="paypal-donate-btn" class="paypal-btn" href="https://paypal.me/fondationgivinlove/50EUR" target="_blank" rel="noopener" aria-label="Donner 50 € via PayPal">
+                <span class="paypal-wordmark"><span>Pay</span><span>Pal</span></span>
               </a>
             </div>
             <script>
@@ -173,7 +176,7 @@
             </script>
             <script>
               (function(){
-                var link=document.getElementById('paypal-donate-btn'), amountSpan=document.getElementById('paypal-amount');
+                var link=document.getElementById('paypal-donate-btn');
                 if(!link) return;
                 var BASE='https://paypal.me/fondationgivinlove/';
                 function currentAmount(){
@@ -185,7 +188,7 @@
                 function updatePaypal(){
                   var val=currentAmount();
                   link.href=BASE+val+'EUR';
-                  if(amountSpan) amountSpan.textContent=val.toLocaleString('fr-FR')+' €';
+                  link.setAttribute('aria-label','Donner '+val.toLocaleString('fr-FR')+' € via PayPal');
                 }
                 document.querySelectorAll('.amount-btn').forEach(function(btn){ btn.addEventListener('click', updatePaypal); });
                 var custom=document.getElementById('don-libre');
